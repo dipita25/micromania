@@ -5,3 +5,9 @@
 <p>Plateforme : <%= @game.platform %></p>
 
 <p> <%= link_to "Retour à l'Accueil", games_path %></p>
+<br/>
+
+<%= link_to "Delete",
+  destroy_game_path(id: @game),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>

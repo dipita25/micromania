@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   root to: 'test#home'
 
   get "games", to: "games#index", as: :games
-  get "games/new", to: "games#new", as: :gameNew
+  get "games/new", to: "games#new", as: :new_game
   get "games/:id", to: "games#show", as: :game
-  post "games/", to: "games#create", as: :gameCreate
-  get "games/:id/edit", to: "games#edit", as: :gameEdit
-  patch "games/:id", to: "games#update", as: :gameUpdate
+  post "games/", to: "games#create", as: :create_game
+  get "games/:id/edit", to: "games#edit", as: :edit_game
+  patch "games/:id", to: "games#update", as: :update_game
+  delete "games/:id", to: "games#destroy", as: :destroy_game
 end

@@ -28,6 +28,12 @@ class GamesController < ApplicationController
     redirect_to game_path(@game)
   end
 
+  def destroy
+    @game = Game.find(params[:id])
+    @game.destroy
+    redirect_to games_path, status: :see_other
+  end
+
   def games_params
     params.require(:game).permit(:name, :price, :platform, :photo)
   end
