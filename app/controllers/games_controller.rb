@@ -13,12 +13,18 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.new(params[:game])
+    @game = Game.new(game_params)
     @game.save
     redirect_to game_path(@game)
   end
 
   def games_params
     params.require(:game).permit(:name, :price, :platform, :photo)
+  end
+
+  private
+
+  def game_params
+    params.require(:game).permit(:name, :price, :platform)
   end
 end
