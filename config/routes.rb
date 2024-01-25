@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get "games/new", to: "games#new", as: :gameNew
   get "games/:id", to: "games#show", as: :game
   post "games/", to: "games#create", as: :gameCreate
+  get "games/:id/edit", to: "games#edit", as: :gameEdit
+  patch "games/:id", to: "games#update", as: :gameUpdate
 end

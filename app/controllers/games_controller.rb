@@ -18,6 +18,16 @@ class GamesController < ApplicationController
     redirect_to game_path(@game)
   end
 
+  def edit
+    @game = Game.find(params[:id])
+  end
+
+  def update
+    @game = Game.find(params[:id])
+    @game.update(game_params)
+    redirect_to game_path(@game)
+  end
+
   def games_params
     params.require(:game).permit(:name, :price, :platform, :photo)
   end

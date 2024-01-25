@@ -1,0 +1,11 @@
+<p>edit form </p>
+
+<%= form_with model: @game do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+  <%= f.label :platform %>
+  <%= f.text_field :platform %>
+  <%= f.submit %>
+<% end %>
