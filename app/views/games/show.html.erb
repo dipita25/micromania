@@ -4,7 +4,14 @@
 <p>Prix : <%= @game.price %></p>
 <p>Plateforme : <%= @game.platform %></p>
 
-<p> <%= link_to "Retour à l'Accueil", games_path %></p>
+<p> <%= link_to "Retour à l'Accueil", root_path %></p>
+<br/>
+
+
+<p><%= link_to "Edit",
+  edit_game_path(id: @game)
+%></p>
+
 <br/>
 
 <%= link_to "Delete",
