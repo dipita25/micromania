@@ -1,11 +1,9 @@
-<%= simple_form_for(game) do |f| %>
-  <!-- [...] -->
-  <%= f.input :name %>
-  <%= f.input :price %>
-  <%= f.input :platform %>
-  <%= f.input :photo, as: :file %>
-  <div  class="form-actions">
-    <%= f.button :submit %>
-  </div>
-  <!-- [...] -->
+<%= form_with model: game do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+  <%= f.label :platform %>
+  <%= f.text_field :platform %>
+  <%= f.submit %>
 <% end %>
