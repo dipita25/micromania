@@ -2,6 +2,8 @@ class GamesController < ApplicationController
 
   before_action :get_game, only: [:show, :edit, :update, :destroy]
 
+
+  #skip_before_action :authenticate_user!, only: :index
   def index
     @games = Game.all
   end
