@@ -7,6 +7,10 @@
 <%= cl_image_tag(@game.photo.key,
       width: 400, height: 300, crop: :fit) %>
 
+
+<br/>
+<p> <%= link_to "Louer", new_booking_path %></p>
+
 <p> <%= link_to "Retour à l'Accueil", root_path %></p>
 <br/>
 
