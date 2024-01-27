@@ -4,6 +4,9 @@
 <p>Prix : <%= @game.price %></p>
 <p>Plateforme : <%= @game.platform %></p>
 
+<%= cl_image_tag(@game.photo.key,
+      width: 400, height: 300, crop: :fit) %>
+
 <p> <%= link_to "Retour à l'Accueil", root_path %></p>
 <br/>
 
