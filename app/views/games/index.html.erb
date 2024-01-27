@@ -1,6 +1,5 @@
 Vous êtes sur la page d'index des games
-<h1> Liste des Games </h1>
-
+<h1> Liste des Jeux </h1>
 <ul>
   <% @games.each do |game| %>
     <li><%= link_to game.name, game_path(game) %></li>
