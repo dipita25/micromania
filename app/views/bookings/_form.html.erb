@@ -1,6 +1,6 @@
 <%= simple_form_for(@booking) do |f| %>
-  <%= f.input :user_id, as: :integer %>
-  <%= f.input :game_id, as: :integer %>
+  <%= f.input :user_id, as: :integer, :as => :hidden %>
+  <%= f.input :game_id, as: :integer, :as => :hidden %>
   <%= f.input :startDate %>
   <%= f.input :endDate %>
   <%= f.submit %>
