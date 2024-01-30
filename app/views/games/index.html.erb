@@ -1,14 +1,64 @@
-Vous êtes sur la page d'index des games
-<h1> Liste des Jeux </h1>
-<ul>
+<div class="container">
+  <div class="d-flex justify-content-center align-items-center">
+    <h1> Liste des Jeux </h1>
+  </div>
+
+
+  <div class="row">
   <% @games.each do |game| %>
-    <li><%= link_to game.name, game_path(game) %></li>
+    <div class="col-md-3">
+      <div class="card" style="width: 18rem;">
+        <%= cl_image_tag(game.photo.key, width: 400, height: 300, crop: :fit, class: "card-img-top game-image") %>
+        <div class="card-body">
+          <h5 class="card-title"><%= game.name %></h5>
+          <p class="card-text">Some quick example text to build on the card title and
+            make up the bulk of the card's content.
+          </p>
+
+          <%= link_to "Détails", game_path(game), class: "btn btn-primary"%>
+        </div>
+      </div>
+    </div>
   <%end %>
-</ul>
+  </div>
 
-<br/>
+  <br/>
 
-<p> <%= link_to "Ajouter Game", new_game_path %></p>
+  <p> <%= link_to "Ajouter Game", new_game_path %></p>
 
 
-<p> <%= link_to "consulter les bookings", bookings_path %></p>
+  <p> <%= link_to "consulter les bookings", bookings_path %></p>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .game-image {
+    width: 287px;
+    height: 200px;
+    object-fit: fit; /* ou `object-fit: contain;` selon le rendu souhaité */
+  }
+</style>

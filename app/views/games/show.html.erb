@@ -1,27 +1,32 @@
-<h2>Detail du Jeu </h2>
+<div class="container">
+  <h2>Detail du Jeu </h2>
 
-<p>Nom : <%= @game.name %></p>
-<p>Prix : <%= @game.price %></p>
-<p>Plateforme : <%= @game.platform %></p>
+  <p>Nom : <strong><%= @game.name %></strong></p>
+  <p>Prix : <strong><%= @game.price %></strong></p>
+  <p>Plateforme : <strong><%= @game.platform %></strong></p>
 
-<%= cl_image_tag(@game.photo.key,
-      width: 400, height: 300, crop: :fit) %>
-
-
-<br/>
-<p> <%= link_to "Louer", new_booking_path %></p>
-
-<p> <%= link_to "Retour à l'Accueil", root_path %></p>
-<br/>
+  <%= cl_image_tag(@game.photo.key,
+        width: 400, height: 300, crop: :fit) %>
 
 
-<p><%= link_to "Edit",
-  edit_game_path(id: @game)
-%></p>
+  <br/>
+  <p> <%= link_to "Louer", new_booking_path %></p>
 
-<br/>
+  <p> <%= link_to "Retour à l'Accueil", root_path %></p>
+  <br/>
 
-<%= link_to "Delete",
-  destroy_game_path(id: @game),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+
+  <p><%= link_to "Edit",
+    edit_game_path(id: @game)
+  %></p>
+
+  <br/>
+
+  <%= link_to "Delete",
+    destroy_game_path(id: @game),
+    data: {"turbo_method": :delete, turbo_confirm: "Are you sure?"}
+  %>
+
+  <%= button_to 'Supprimer', destroy_game_path(id: @game), method: :delete,
+    data: {"turbo_method": :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
+</div>

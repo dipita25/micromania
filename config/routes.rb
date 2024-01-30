@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
+  delete "games/:id", to: "games#destroy", as: :destroy_game
   root "games#index"
   get "games/new", to: "games#new", as: :new_game
   get "games/:id", to: "games#show", as: :game
   post "games/", to: "games#create"
   get "games/:id/edit", to: "games#edit", as: :edit_game
   patch "games/:id", to: "games#update", as: :update_game
-  delete "games/:id", to: "games#destroy", as: :destroy_game
 
   get "bookings", to: "bookings#index"
   get "bookings/new/games/:id", to: "bookings#new", as: :new_booking

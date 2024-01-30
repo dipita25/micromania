@@ -16,8 +16,11 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    @game.save
-    redirect_to game_path(@game)
+    if @game.save
+      redirect_to game_path(@game)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
