@@ -1,32 +1,31 @@
 <div class="container">
-  <h2>Detail du Jeu </h2>
 
-  <p>Nom : <strong><%= @game.name %></strong></p>
-  <p>Prix : <strong><%= @game.price %></strong></p>
-  <p>Plateforme : <strong><%= @game.platform %></strong></p>
+  <div class="row">
+    <div class="col-6 mt-3">
+      <h2>Detail du Jeu </h2>
 
-  <%= cl_image_tag(@game.photo.key,
+      <p>Nom : <strong><%= @game.name %></strong></p>
+      <p>Prix : <strong><%= @game.price %></strong></p>
+      <p>Plateforme : <strong><%= @game.platform %></strong></p>
+
+      <p> <%= link_to "Louer", new_booking_path, class: "btn btn-primary" %></p>
+
+      <p> <%= link_to "Retour à l'Accueil", root_path, class: "btn btn-primary" %></p>
+
+      <p><%= link_to "Edit",
+        edit_game_path(id: @game), class: "btn btn-primary"
+      %></p>
+
+      <br/>
+
+      <%= button_to 'Supprimer', destroy_game_path(id: @game), method: :delete,
+        data: {"turbo_method": :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
+    </div>
+
+    <div class="col-6 mt-5">
+      <%= cl_image_tag(@game.photo.key,
         width: 400, height: 300, crop: :fit) %>
+    </div>
+  </div>
 
-
-  <br/>
-  <p> <%= link_to "Louer", new_booking_path %></p>
-
-  <p> <%= link_to "Retour à l'Accueil", root_path %></p>
-  <br/>
-
-
-  <p><%= link_to "Edit",
-    edit_game_path(id: @game)
-  %></p>
-
-  <br/>
-
-  <%= link_to "Delete",
-    destroy_game_path(id: @game),
-    data: {"turbo_method": :delete, turbo_confirm: "Are you sure?"}
-  %>
-
-  <%= button_to 'Supprimer', destroy_game_path(id: @game), method: :delete,
-    data: {"turbo_method": :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
 </div>
