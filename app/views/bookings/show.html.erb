@@ -13,7 +13,7 @@
       <% end %>
 
 <br/>
-<% if policy(@game).destroy? %>
+<% if policy(@booking).destroy? %>
 <%= button_to 'Supprimer', destroy_booking_path(id: @booking), method: :delete,
   data: {"turbo_method": :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
 
