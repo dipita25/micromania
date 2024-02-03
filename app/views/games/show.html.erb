@@ -12,14 +12,19 @@
 
       <p> <%= link_to "Retour à l'Accueil", root_path, class: "btn btn-primary" %></p>
 
+
+      <% if policy(@game).edit? %>
       <p><%= link_to "Edit",
         edit_game_path(id: @game), class: "btn btn-primary"
       %></p>
+      <% end %>
 
       <br/>
-
+      <% if policy(@game).destroy? %>
       <%= button_to 'Supprimer', destroy_game_path(id: @game), method: :delete,
         data: {"turbo_method": :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
+
+      <% end %>
     </div>
 
     <div class="col-6 mt-5">

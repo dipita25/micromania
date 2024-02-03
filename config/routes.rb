@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   delete "games/:id", to: "games#destroy", as: :destroy_game
   root "games#index"
+  get "games", to: "games#index"
   get "games/new", to: "games#new", as: :new_game
   get "games/:id", to: "games#show", as: :game
   post "games/", to: "games#create"

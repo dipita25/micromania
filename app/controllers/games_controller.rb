@@ -3,8 +3,9 @@ class GamesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :get_game, only: [:show, :edit, :update, :destroy]
 
+
   def index
-    @games = Game.all
+    @games = policy_scope(Game)
   end
 
   def show
@@ -12,10 +13,13 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    authorize @game
   end
 
   def create
     @game = Game.new(game_params)
+    authorize @game
+    @game.user = current_user
     if @game.save
       redirect_to game_path(@game)
     else
@@ -44,5 +48,7 @@ class GamesController < ApplicationController
 
   def get_game
     @game = Game.find(params[:id])
+    authorize @game
   end
+
 end
