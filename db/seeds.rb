@@ -5,26 +5,59 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+# Create user
 puts "Vidange de la BD en cours ..."
 Booking.destroy_all
 Game.destroy_all
 User.destroy_all
 
 puts "Création des users en cours ..."
-
 user1 = {email: "jonathan@gmail.com", password: "password123"}
 user2 = {email: "daren@gmail.com", password: "password456"}
-
 user1 = User.create(user1)
 user2 = User.create(user2)
-
 puts "Finished! #{user1.email}"
 
 puts "Création des Games en cours ..."
-image_url = "https://res.cloudinary.com/dhyxhfi5d/image/upload/v1706925340/development/fifa.jpg"
-game1 = {name: "Fifa", price: 5000, platform: "pc", user_id: user1.id}
-
+game1 = {name: "call of Duty", price: 5000, platform: "pc", user_id: user1.id}
 game1 = Game.create(game1)
-game1.photo.attach(io: URI.open(image_url), filename: "fifa.jpg")
+
+image_url = "https://res.cloudinary.com/dhyxhfi5d/image/upload/v1706350289/development/cad.jpg"
+game1.photo.attach(io: URI.open(image_url), filename: "cad.jpg")
+
 
 puts "Finished! #{game1.name}"
+game2 = {name: "Fifa 23", price: 2800, platform: "Xbox", user_id: user1.id}
+game2 = Game.create(game2)
+
+image_url2 = "https://res.cloudinary.com/dhyxhfi5d/image/upload/v1706925340/development/fifa.jpg"
+game2.photo.attach(io: URI.open(image_url2), filename: "fifa.jpg")
+
+puts "Finished! #{game2.name}"
+game3 = {name: "Bioshock", price: 900, platform: "PC", user_id: user1.id}
+game3 = Game.create(game3)
+
+image_url3 = "https://res.cloudinary.com/dhyxhfi5d/image/upload/v1706955403/bioshock.jpg"
+game3.photo.attach(io: URI.open(image_url3), filename: "bioshock.jpg")
+puts "Finished! #{game3.name}"
+
+game4 = {name: "GTA 4", price: 700, platform: "playstation", user_id: user1.id}
+game4 = Game.create(game4)
+
+image_url4 = "https://res.cloudinary.com/dhyxhfi5d/image/upload/v1706751038/development/GTA.jpg"
+game4.photo.attach(io: URI.open(image_url4), filename: "GTA.jpg")
+puts "Finished! #{game4.name}"
+
+
+puts "Création des bookings en cours..."
+booking1 = {user_id: user1.id, game_id: game1.id, startDate: Date.new(2024, 1, 4), endDate: Date.new(2024, 1, 20)}
+# puts "finished! #{booking1.user_id}"
+booking1=Booking.create (booking1)
+# booking1 = Booking.create(user: user1, game: game1, start_date: Date.new(2024, 1, 4), end_date: Date.new(2024, 1, 20))
+# puts "Finished! User ID: #{booking1.user_id}, Game ID: #{booking1.game_id}"
+# Booking
+puts "finished! #{booking1.user_id}"
+
+booking2 = {user_id: user2.id, game_id: game1.id, startDate: Date.new(2024, 1, 9), endDate: Date.new(2024, 1, 29) }
+booking2=Booking.create (booking2)
+puts "finished! #{booking1.user_id}"
