@@ -6,6 +6,19 @@
 <p>Date de Début : <strong> <%= @booking.startDate %></strong> </p>
 <p>Date de Fin : <strong> <%= @booking.endDate %></strong> </p>
 
+<% if policy(@booking).edit? %>
+      <p><%= link_to "Edit",
+        edit_booking_path(id: @booking), class: "btn btn-primary"
+      %></p>
+      <% end %>
+
+<br/>
+<% if policy(@game).destroy? %>
+<%= button_to 'Supprimer', destroy_booking_path(id: @booking), method: :delete,
+  data: {"turbo_method": :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
+
+<% end %>
+
 <%= cl_image_tag(@game.photo.key,
       width: 400, height: 300, crop: :fit) %>
 

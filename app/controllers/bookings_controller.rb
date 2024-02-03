@@ -32,6 +32,7 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    @game = Game.find(@booking.game_id)
     authorize @booking
   end
 
